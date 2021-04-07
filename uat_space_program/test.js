@@ -1,28 +1,19 @@
-let timerCount = 10;
-let timeMultiplier = 1;
-
 function countdownTimer(timerCount) {
 
-    // Showing Timer Location
+    // Showing timer location
     document.getElementById("timer").innerHTML = "Prepare to Launch";
 
-    // Setting countdown time
-    for (i = 0; i > 11; i++) {
-        // Call delay() function
-        delay(i);
+    // Establish timer start
+    let steps = 1;
+    let count = 10;
+    let timer = setInterval(function () {
+        document.getElementById('timer').innerHTML = "T- " + count + " seconds";
+        steps++;
+        count--;
 
-        // Changing display at end
-        if (timerCount < 0) {
-            document.getElementById("timer").innerHTML = "LAUNCH";
+        if (count < 0) {
+            clearInterval(timer);
+            document.getElementById('timer').innerHTML = "LAUNCH";
         }
-    }
-
-    // Delay function
-    function delay(i) {
-        setTimeout(function () {
-            document.getElementById("timer").innerHTML = timerCount + " seconds";
-        }, 1000 * timeMultiplier);
-        timerCount--;
-        timeMultiplier++;
-    }
+    }, 1000 * steps);
 }

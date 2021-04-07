@@ -3,7 +3,7 @@
 <!-- CSC102 - Introduction to Programming -->
 
 <!DOCTYPE html>
-<html lang="en" style="height: 100%; font-family: Arial, Helvetica, sans-serif;">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,137 +12,17 @@
     <title>Launching UAT Space Program HTML Document Tags</title>
 
     <!-- Stylesheets -->
-    <!-- <link rel="stylesheet" href="test.css"> -->
+    <link rel="stylesheet" href="test.css">
 
     <!-- JavaScripts -->
-    <!-- <script src="test.js"></script> -->
-    <script>
-        // Establishing starting point
-        let timerCount = 10;
-        let timeMultiplier = 1;
-
-        //Creating countdown function with parameter
-        function countDown() {
-
-            setTimeout(function () {
-                document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-                colorChange();
-                timerCount--;
-            }, 1000 * timeMultiplier);
-            timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = timerCount + " seconds";
-
-            //         timerCount--;
-            //     }, 1000 * timeMultiplier);
-            //     timeMultiplier++;
-
-            //     setTimeout(function () {
-            //         document.getElementById("timer").innerHTML = "LAUNCH";
-            //     }, 1000 * timeMultiplier);
-            // }
-
-            // Fade text color from red back to white
-            function colorChange() {
-                // Colors to be changed to
-                let startColor = [170, 14, 40];
-                let endColor = [0, 0, 0];
-
-                // Setting up color change rate
-                let redChange = (startColor[0] - endColor[0]) / 10;
-                let greenChange = (startColor[1] - endColor[1]) / 10;
-                let blueChange = (startColor[2] - endColor[2]) / 10;
-
-                // Starting Point for color timer
-                let currentColor = startColor;
-                let steps = 10;
-                let stepCount = 0;
-
-                let colorTimer = setInterval(function () {
-                    // Value to be changed over time
-                    currentColor[0] = parseInt(currentColor[0] - redChange);
-                    currentColor[1] = parseInt(currentColor[1] - greenChange);
-                    currentColor[2] = parseInt(currentColor[2] - blueChange);
-
-                    // Element to be changed over time
-                    document.getElementById('timer').style.color = 'rgb(' + endColor.toString() + ')';
-                    stepCount++;
-
-                    // Validation check
-                    if (stepCount >= steps) {
-                        document.getElementById('timer').style.color = 'rgb(' + endColor.toString() + ')';
-                        clearInterval(colorTimer);
-                    }
-                }, 100);
-            }
-        }
-    </script>
+    <script src="test.js"></script>
 </head>
 
-<body style="height: 100%; background-image: linear-gradient(#000080, #89cff0); background-repeat: no-repeat;
-    background-attachment: fixed; font-size: 2.1em;">
-    <header style="display: flex; padding: 1em;">
+<body>
+    <header>
         <img src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
-            alt="UAT Space Program Mission 3 Logo" style="width: 3.5em; height: 3.5em;">
-        <h1 style="width: 100%; color: rgb(170, 14, 40); text-align: right;">UAT Space Program</h1>
+            alt="UAT Space Program Mission 3 Logo">
+        <h1>UAT Space Program</h1>
     </header>
 
     <main>
@@ -150,8 +30,8 @@
         <p>Test of the document write function.</p>
         <p>Test of the paragraph tags</p>
 
-        <button style="border-radius: .5em;" onclick="countDown()">Start</button>
-        <button style="border-radius: .5em;">Stop</button>
+        <button onclick="countdownTimer()">Start</button>
+        <button>Stop</button>
     </main>
 </body>
 
