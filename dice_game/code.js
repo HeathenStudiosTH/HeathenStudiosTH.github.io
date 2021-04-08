@@ -6,6 +6,8 @@ function rollDice() {
         // Picks two random numbers for dice
         let randomNumber1 = Math.floor(Math.random() * 6) + 1;
         let randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+        // Establishes a sum of previously stored variable.
         let sum = randomNumber1 + randomNumber2;
 
         // Obtain location of img files based on value
