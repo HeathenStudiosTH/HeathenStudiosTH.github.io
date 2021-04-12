@@ -12,26 +12,50 @@
     <title>Launching UAT Space Program HTML Document Tags</title>
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="test.css">
 
     <!-- JavaScripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="test.js"></script>
 </head>
 
 <body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand">
+            <img src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
+                alt="UAT Space Program Mission 3 Logo">
+        </a>
+        <h2 class="display-4 navbar-custom">University of Advancing Technology</h2>
+    </nav>
+
     <header>
-        <img src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
-            alt="UAT Space Program Mission 3 Logo">
-        <h1>UAT Space Program</h1>
+        <div>
+            <h2 class="display-2 text-center mb-5 navbar-custom">Space Program</h2>
+        </div>
     </header>
 
-    <main>
-        <p id="timer"></p>
-        <p>Test of the document write function.</p>
-        <p>Test of the paragraph tags</p>
+    <main class="container-fluid">
+        <div>
+            <p id="timer" class="container display-4 text-center">Prepare to Launch</p>
+        </div>
+        <p class="display-4 text-center">Test of the document write function.</p>
+        <p class="display-4 text-center">Test of the paragraph tags</p>
 
-        <button onclick="countdownTimer()">Start</button>
-        <button>Stop</button>
+        <div class="btn-group btn-group-lg d-flex justify-content-center my-5" role="group"
+            aria-label="launch button group">
+            <button type="button" class="btn btn-success btn-lg my-2 my-sm-0 " onclick="countdownTimer()">Start</button>
+            <button type="button" class="btn btn-danger btn-lg my-2 my-sm-0 ">Stop</button>
+        </div>
     </main>
 </body>
 
