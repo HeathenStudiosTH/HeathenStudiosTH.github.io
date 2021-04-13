@@ -1,6 +1,6 @@
 function countdownTimer(timerCount) {
 
-    // Showing timer location
+    // Getting timer location
     let timerText = document.getElementById("timer");
     timerText.innerHTML = "Prepare to Launch";
 
@@ -12,7 +12,7 @@ function countdownTimer(timerCount) {
     let timer = setInterval(function () {
         // New if conditions that checks if count is under 10 secs
         if (count <= 10) {
-            // NEW output to be displayed
+            // *NEW output to be displayed*
             timerText.innerHTML = 'Warning<br>Less than 1/2 way to launch, <br>time left = ' + count + ' seconds';
         } else {
             // Display output
