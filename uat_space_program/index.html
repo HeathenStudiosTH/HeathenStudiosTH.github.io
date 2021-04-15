@@ -1,0 +1,117 @@
+<!-- Timothy Hebert -->
+<!-- University of Advancing Technology -->
+<!-- CSC102 - Introduction to Programming -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launching UAT Space Program HTML Document Tags</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="test.css">
+
+    <!-- JavaScripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="test.js"></script>
+</head>
+
+<body>
+    <div class="text-center">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <form class="form-signin">
+                    <h1>Please sign in</h1>
+                    <label class="sr-only" for="inputEmail">First Name</label>
+                    <input id="inputFirstName" class="form-control" type="text" placeholder="first-name" required>
+                    <label class="sr-only" for="inputPassword">Last Name</label>
+                    <input id="inputLastName" class="form-control" type="text" placeholder="last-name" required>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me">
+                            <p>Remember me</p>
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary-btn-block" type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">
+                    <img class="rounded" src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
+                        alt="UAT Space Program Mission 3 Logo">
+                </a>
+                <h2 class="display-4 navbar-custom"><strong>University of Advancing Technology</strong></h2>
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+            </div>
+        </nav>
+    </div>
+
+    <header>
+        <div>
+            <h2 class="display-2 text-center my-4 navbar-custom"><strong>Space Program</strong></h2>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div>
+            <p id="timer" class="display-4 text-center my-5">Prepare to Launch</p>
+        </div>
+
+        <div class="my-5">
+            <p class="display-4 text-center">Test of the document write function.</p>
+            <p class="display-4 text-center">Test of the paragraph tags</p>
+        </div>
+
+        <div class="btn-group btn-group-lg d-flex justify-content-center my-5" role="group"
+            aria-label="launch button group">
+            <button type="button" class="btn btn-success btn-lg my-2 my-sm-0 " onclick="countdownTimer()">Start</button>
+            <button type="button" class="btn btn-danger btn-lg my-2 my-sm-0 " onclick="">Stop</button>
+        </div>
+    </main>
+
+    <footer class="navbar navbar-dark bg-dark fixed-bottom">
+        <div class="container-fluid justify-content-between">
+            <a class="navbar-brand" href="#">
+                <img class="rounded" src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
+                    alt="UAT Space Program Mission 3 Logo">
+            </a>
+            <!-- Social Media & Website Links -->
+            <ul id="social-media" class="col-sm d-flex d-inline justify-content-end">
+                <li class="list-inline-item">
+                    <a href="https://www.uat.edu" id="UAT Website" class="social-media">
+                        <img src="https://www.uat.edu/themes/uat/images/uat-logo.png"
+                            alt="University of Advancing Technology Logo">
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://www.facebook.com/UATedu/" id="facebook" class="social-media">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

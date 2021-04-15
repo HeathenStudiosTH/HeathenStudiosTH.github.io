@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | UAT Space Program</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="test.css">
+
+    <!-- Scripts -->
+    <script src="test.js"></script>
+</head>
+
+<body class="text-center">
+    <div class="container">
+        <form class="form-signin">
+            <img src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1" alt="UAT Space Program Logo"
+                class="mb-4">
+            <h1 class="h2 mb-3 font-weight-normal navbar-custom">Please sign in</h1>
+            <p id="loginStatus"></p>
+            <label for="" class="sr-only"></label>
+            <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" autocomplete="off">
+            <label for="" class="sr-only"></label>
+            <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" autocomplete="off">
+            <label for="" class="sr-only"></label>
+            <input type="text" id="inputBadgeNo" class="form-control my-3" placeholder="Badge No." autocomplete="off">
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"><span class="navbar-custom"> Remember me</span>
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" onclick="signIn()">Sign in</button>
+        </form>
+    </div>
+
+    <footer class="navbar navbar-dark bg-dark fixed-bottom">
+        <div class="container-fluid justify-content-between">
+            <a class="navbar-brand" href="#">
+                <img class="rounded" src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
+                    alt="UAT Space Program Mission 3 Logo">
+            </a>
+            <!-- Social Media & Website Links -->
+            <ul id="social-media" class="col-sm d-flex d-inline justify-content-end">
+                <li class="list-inline-item">
+                    <a href="https://www.uat.edu" id="UAT Website" class="social-media">
+                        <img src="https://www.uat.edu/themes/uat/images/uat-logo.png"
+                            alt="University of Advancing Technology Logo">
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://www.facebook.com/UATedu/" id="facebook" class="social-media">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
