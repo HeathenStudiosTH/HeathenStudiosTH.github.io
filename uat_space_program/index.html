@@ -16,7 +16,7 @@
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="stylesheet.css">
 
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -28,7 +28,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="test.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -79,13 +79,14 @@
         </div>
 
         <div class="my-5">
-            <p class="display-4 text-center">Test of the document write function.</p>
-            <p class="display-4 text-center">Test of the paragraph tags</p>
+            <p id="home-page-info1" class="display-4 text-center">Test of the document write function.</p>
+            <p id="home-page-info2" class="display-4 text-center">Test of the paragraph tags</p>
         </div>
 
         <div class="btn-group btn-group-lg d-flex justify-content-center my-5" role="group"
             aria-label="launch button group">
-            <button type="button" class="btn btn-success btn-lg my-2 my-sm-0 " onclick="countdownTimer()">Start</button>
+            <button type="button" class="btn btn-success btn-lg my-2 my-sm-0 "
+                onclick="this.disabled=true;countdownTimer();">Start</button>
             <button type="button" class="btn btn-danger btn-lg my-2 my-sm-0 " onclick="">Stop</button>
         </div>
     </main>
