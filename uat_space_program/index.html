@@ -28,11 +28,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="launch.js"></script>
     <script src="index.js"></script>
 </head>
 
 <body>
-    <div class="text-center">
+    <header id="header">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
                 <form class="form-signin">
@@ -54,8 +55,7 @@
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand">
-                    <img class="rounded" src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
-                        alt="UAT Space Program Mission 3 Logo">
+                    <img class="rounded" src="imgs/UATspaceLogo-2.jpg" alt="UAT Space Program Mission 3 Logo">
                 </a>
                 <h2 class="display-4 navbar-custom"><strong>University of Advancing Technology</strong></h2>
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -65,13 +65,13 @@
                 </button> -->
             </div>
         </nav>
-    </div>
-
-    <header>
-        <div>
-            <h2 class="display-2 text-center my-4 navbar-custom"><strong>Space Program</strong></h2>
-        </div>
     </header>
+
+    <div id="heading" class="text-center">
+        <div>
+            <h2 class="display-2 text-center my-2 navbar-custom"><strong>Space Program</strong></h2>
+        </div>
+    </div>
 
     <main class="container-fluid">
         <div>
@@ -79,32 +79,230 @@
         </div>
 
         <div class="my-5">
-            <p id="home-page-info1" class="display-4 text-center">Test of the document write function.</p>
-            <p id="home-page-info2" class="display-4 text-center">Test of the paragraph tags</p>
+            <p id="home-page-info" class="display-4 text-center">Test of the document write function.<br>Test of the
+                paragraph tags.</p>
         </div>
 
-        <div class="btn-group btn-group-lg d-flex justify-content-center my-5" role="group"
+        <!-- Collapsed table for flight data -->
+        <div>
+            <div id="launchData" class="bg-primary p-4 collapse rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm text-center">
+                            <strong>Space Program</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right border-bottom">
+                            <strong>Data Type</strong>
+                        </div>
+                        <div class="col-sm border-left border-bottom">
+                            <strong>Readings</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Time Elapsed:
+                        </div>
+                        <div id="et" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Latitude:
+                        </div>
+                        <div id="lat" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Longitude:
+                        </div>
+                        <div id="long" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            GPS Altitude:
+                        </div>
+                        <div id="gpsAlt" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            BMP Sensor Altitude:
+                        </div>
+                        <div id="bmpAlt" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            BMP Sensor Pressure:
+                        </div>
+                        <div id="bmpPress" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            BMP Sensor Temperature:
+                        </div>
+                        <div id="bmpTemp" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Digital Sensor Temperature:
+                        </div>
+                        <div id="digitalTemp" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            CSS Sensor Temperature:
+                        </div>
+                        <div id="cssTemp" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            CSS Sensor eCO2:
+                        </div>
+                        <div id="cssEco2" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            CSS Sensor TVOC:
+                        </div>
+                        <div id="cssTvoc" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            UV:
+                        </div>
+                        <div id="uv" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Accel X:
+                        </div>
+                        <div id="accelX" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Accel Y:
+                        </div>
+                        <div id="accelY" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Accel Z:
+                        </div>
+                        <div id="accelZ" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Magnetic X:
+                        </div>
+                        <div id="magX" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Magnetic Y:
+                        </div>
+                        <div id="magY" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Magnetic Z:
+                        </div>
+                        <div id="magZ" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Gyro X:
+                        </div>
+                        <div id="gyroX" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Gyro Y:
+                        </div>
+                        <div id="gyroY" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm border-right">
+                            Gyro Z:
+                        </div>
+                        <div id="gyroZ" class="col-sm border-left">
+                            0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button group -->
+        <div id="btn-group" class="btn-group btn-group-lg d-flex justify-content-center my-5 collapse show" role="group"
             aria-label="launch button group">
-            <button type="button" class="btn btn-success btn-lg my-2 my-sm-0 "
-                onclick="this.disabled=true;countdownTimer();">Start</button>
-            <button type="button" class="btn btn-danger btn-lg my-2 my-sm-0 " onclick="">Stop</button>
+            <button id="startButton" type="button" class="btn btn-success btn-lg my-2 my-sm-0 "
+                onclick="start();">Start</button>
+            <button id="stopButton" type="button" class="btn btn-danger btn-lg my-2 my-sm-0 "
+                onclick="stop();">Stop</button>
+            <button id="resetButton" type="button" class="btn btn-warning btn-lg my-2 my-sm-0"
+                onclick="reset();">Reset</button>
         </div>
     </main>
 
-    <footer class="navbar navbar-dark bg-dark fixed-bottom">
-        <div class="container-fluid justify-content-between">
-            <a class="navbar-brand" href="#">
-                <img class="rounded" src="https://synchronic.uat.edu/courses/4069/files/511491/download?wrap=1"
-                    alt="UAT Space Program Mission 3 Logo">
+    <footer class="navbar navbar-dark bg-dark fixed-bottom footer-custom">
+        <div class="container-fluid container-custom justify-content-between">
+            <a id="footer-space-program-logo" class="navbar-brand" href="#">
+                <img class="rounded" src="imgs/UATspaceLogo-2.jpg" alt="UAT Space Program Mission 3 Logo">
             </a>
             <!-- Social Media & Website Links -->
             <ul id="social-media" class="col-sm d-flex d-inline justify-content-end">
+                <!-- Link to UAT homepage -->
                 <li class="list-inline-item">
                     <a href="https://www.uat.edu" id="UAT Website" class="social-media">
                         <img src="https://www.uat.edu/themes/uat/images/uat-logo.png"
                             alt="University of Advancing Technology Logo">
                     </a>
                 </li>
+                <!-- Link to UAT facebook page -->
                 <li class="list-inline-item">
                     <a href="https://www.facebook.com/UATedu/" id="facebook" class="social-media">
                         <i class="fab fa-facebook"></i>

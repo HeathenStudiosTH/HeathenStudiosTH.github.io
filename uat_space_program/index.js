@@ -1,37 +1,27 @@
-// Sign in function
-function signIn(fullName, badgeNo) {
-    // Get value from form to be used for validation
-    let firstName = document.getElementById("inputFirstName").value;
-    let lastName = document.getElementById("inputLastName").value;
-    badgeNo = document.getElementById("inputBadgeNo").value;
+function start() {
+    document.getElementById('startButton').disable = true;
+    document.getElementById('stopButton').disable = false;
+    countdownTimer();
+}
 
-    // Combining two variables to create one string variable
-    fullName = firstName + " " + lastName;
+function stop() {
+    document.getElementById('startButton').disable = false;
+    document.getElementById('stopButton').disable = true;
+    clearTimeout(timer);
+}
 
-    if (fullName.length < 3 || fullName.length >= 20 && firstName.length == 0 || lastName.length == 0) {
-        //if true
-        document.getElementById("loginStatus").innerHTML = "Invalid full name!!!";
-        return false;
-    }
-    else if (badgeNo >= 999 || badgeNo <= 100) {
-        document.getElementById("loginStatus").innerHTML = "Invalid badge number!!!";
-        return false;
-    }
-    else {
-        alert("Access Granted! Welcome " + fullName);
-        location.replace("index.html");
-    }
+function reset() {
+    location.reload;
 }
 
 // Countdown function
-function countdownTimer(timerCount) {
+function countdownTimer() {
     // Getting timer location
     let timerText = document.getElementById("timer");
     timerText.innerHTML = "Prepare to Launch";
 
     // Removal of unnecessary text
-    document.getElementById("home-page-info1").innerHTML = "";
-    document.getElementById("home-page-info2").innerHTML = "";
+    document.getElementById("home-page-info").innerHTML = "";
 
     // Establish timer start
     let steps = 1;
@@ -43,6 +33,8 @@ function countdownTimer(timerCount) {
         if (count <= 5) {
             // *NEW output to be displayed*
             timerText.innerHTML = '<span style = \'color: #aa0e28; font-weight: bold;\'>WARNING</span><br>Less than 1/2 way to launch, <br>time left = <span style=\'color: #aa0e28; font-weight: bold;\'>' + count + '</span> seconds';
+        } else if (count == 1) {
+            timerText.innerHTML = '<span style = \'color: #aa0e28; font-weight: bold;\'>WARNING</span><br>Less than 1/2 way to launch, <br>time left = <span style=\'color: #aa0e28; font-weight: bold;\'>' + count + '</span> second';
         } else {
             // Display output
             timerText.innerHTML = "T- " + count + " seconds";
@@ -63,6 +55,7 @@ function countdownTimer(timerCount) {
             timerText.style.color = '#aa0e28';
             // Change font weight to bold
             timerText.style.fontWeight = 'bold';
+            postLaunchData();
         }
     }, 1000 * steps);
 }
