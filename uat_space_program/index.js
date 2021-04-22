@@ -1,6 +1,7 @@
 // Global variable to assign "class" function and give buttons access to "setVariable"
 let timerCount;
 
+// Once document is loaded, assigning global variable timerCount to _countdownTimer() to access start, stop, and reset sub functions
 $(document).ready(function (e) {
     timerCount = new _countdownTimer(function (count) {
         if (count == 0) {
