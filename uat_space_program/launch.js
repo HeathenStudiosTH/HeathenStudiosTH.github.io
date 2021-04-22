@@ -1,32 +1,22 @@
 function postLaunchData() {
-    // Getting timer location
-    let timerLocation = document.getElementById("timer");
-    // Getting heading location
-    let headingLocation = document.getElementById("heading");
-
     // Setting count and steps
-    let count = 0;
+    let count = 2;
     let steps = 1;
+    let dataInput;
 
+    // Setting up 1 second delay to reveal "data table"
     setTimeout(function () {
-        // Remove Heading and "Launch" strings in body to make room for table
-        timerLocation.innerHTML = "";
-        headingLocation.innerHTML = "";
-
         // Show table via bootstrap collapse
         $('#launchData').collapse();
-        // Heading section removal to allow room for table
+        // Heading and timer section removal to allow room for table
         $('#heading').remove();
+        $('#timer').remove();
 
         // Update "Readings" column with new data
-        setInterval(function () {
-            document.getElementById('et').innerHTML = "T +: " + count;
+        dataInput = setInterval(function () {
+            document.getElementById('et').innerHTML = "T +: " + count + " seconds";
             count++;
             steps++;
         }, 1000 * steps);
-    }, 2000);
-}
-
-function launchTime() {
-    let launchTime = new Date().getTime();
+    }, 1000);
 }
