@@ -1,5 +1,7 @@
 // Global variable to assign "class" function and give buttons access to "setVariable"
 let timerCount;
+// Global variable to assign constructor function to audio commands
+let loadedAudio;
 
 // Once document is loaded, assigning global variable timerCount to _countdownTimer() to access start, stop, and reset sub functions
 $(document).ready(function (e) {
@@ -10,7 +12,7 @@ $(document).ready(function (e) {
     });
 })
 
-// Countdown function
+// Countdown constructor function
 function _countdownTimer() {
     // Getting timer location
     let timerText = document.getElementById("timer");
@@ -77,6 +79,7 @@ function _countdownTimer() {
 
         steps = 1;
         count = 10;
+        timerText.innerHTML = "<span style = \'color: #aa0e28; font-weight: bold;\'>ABORT</SPAN>";
     }
 
     // Reset function to turn count back to 10
@@ -86,9 +89,47 @@ function _countdownTimer() {
             clearInterval(timer);
             steps = 1;
             count = 10;
+            timerText.innerHTML = "Prepare to Launch";
         } else {
             steps = 1;
             count = 10;
+            timerText.innerHTML = "Prepare to Launch";
         }
     }
+}
+
+// Sound constructor function
+function sound(src) {
+    // Creating element for audio to be embedded
+    this.sound = document.createElement("audio");
+    // Getting source for file
+    this.sound.src = src;
+    // Setting preload and control attributes
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    // Setting element as hidden on webpage
+    this.sound.style.display = "none";
+    // Taking element and appending it to end of <body> tag
+    document.body.appendChild(this.sound);
+    // Establishing play function
+    this.play = function () {
+        this.sound.play();
+    }
+    // Establishing stop function
+    this.stop = function () {
+        this.sound.pause();
+    }
+}
+
+// Build play function using sound constructor function
+function playInterstellar() {
+    // Taking loadAudio variable and assigning it source file
+    loadedAudio = new sound("sounds/no-time-for-caution-edit.mp3");
+    // Initiate play function
+    loadedAudio.play();
+}
+
+// Build stop function using constructor function
+function stopInterstellar() {
+    loadedAudio.stop();
 }

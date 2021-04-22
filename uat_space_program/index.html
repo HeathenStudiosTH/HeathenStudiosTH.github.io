@@ -275,11 +275,11 @@
         <div id="launch-btn-group" class="btn-group btn-group-lg d-flex justify-content-center my-3" role="group"
             aria-label="launch button group">
             <button id="startButton" type="button" class="btn btn-success btn-lg my-2 my-sm-0"
-                onclick="timerCount.start();">Start</button>
+                onclick="timerCount.start(); playInterstellar();">Launch</button>
             <button id="stopButton" type="button" class="btn btn-danger btn-lg my-2 my-sm-0"
-                onclick="timerCount.stop();">Stop</button>
-            <button id="resetButton" type="button" class="btn btn-warning btn-lg text-white my-2 my-sm-0"
-                onclick="timerCount.reset();">Reset</button>
+                onclick="timerCount.stop(); stopInterstellar();" disabled=true>Abort</button>
+            <!-- <button id="resetButton" type="button" class="btn btn-warning btn-lg text-white my-2 my-sm-0"
+                onclick="timerCount.reset();">Reset</button> -->
         </div>
     </main>
 
@@ -306,6 +306,7 @@
             </ul>
         </div>
     </footer>
+    <!-- <script>window.onload = playInterstellar();</script> -->
 </body>
 
 </html>
