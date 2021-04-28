@@ -75,6 +75,7 @@ function _countdownTimer() {
             isRunning = false;
             // Stopping clock
             clearInterval(timer);
+            clearInterval(tableTimer);
         }
 
         steps = 1;

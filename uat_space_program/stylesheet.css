@@ -10,6 +10,10 @@ body {
   background-attachment: fixed;
 }
 
+footer > div > a {
+  max-width: 50%;
+}
+
 footer img, footer i {
   width: 4rem;
   height: 4rem;
@@ -20,6 +24,7 @@ footer > div > ul {
   padding-top: .5rem;
 }
 
+/* Classes */
 .bg-custom {
   background: transparent;
 }
@@ -79,6 +84,11 @@ footer > div > ul {
   border-top-right-radius: 0;
 }
 
+.table-wrap {
+  overflow-y: scroll;
+}
+
+/* ID */
 #header img {
   width: 6rem;
   height: 6rem;
@@ -96,20 +106,74 @@ footer > div > ul {
   margin-left: 2rem;
 }
 
-@media (min-width: 480px) {
+  #social-media {
+    max-width: 50%;
+  }
+
+/* Breaking Point */
+@media (max-width: 600px) {
+  /* Elements */
   header div h2 strong{
     font-size: 2.5rem;
   }
 
-  .bd-placeholder-img-lg {
-    size: 3.5rem;
+  footer {
+    max-height: 6rem;
   }
 
+  /* Classes */
+  .table-wrap {
+    max-height: 15.5rem;
+  }
+
+  /* ID */
   #timer{
     font-size: 2.5rem;
   }
 
   #header h2{
     font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  /* Elements */
+  header div h2 strong{
+    font-size: 2.5rem;
+  }
+
+  /* Classes */
+  .table-wrap {
+    max-height: 21.5rem;
+  }
+
+  /* ID */
+  #timer{
+    font-size: 2.5rem;
+  }
+
+  #header h2{
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px){
+  /* Classes */
+  .table-wrap {
+    max-height: 27.5rem;
+  }
+}
+
+@media (min-width: 992px){
+  /* Classes */
+  .table-wrap {
+    max-height: 30.5rem;
+  }
+}
+
+@media (min-width: 1200px){
+  /* Classes */
+  .table-wrap {
+    max-height: 35.5rem;
   }
 }

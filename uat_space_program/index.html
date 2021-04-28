@@ -28,11 +28,60 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="dataLoader-1.js"></script>
     <script src="launch.js"></script>
     <script src="index.js"></script>
 </head>
 
 <body>
+    <!-- needed for dom -->
+    <script>
+        var theTime = new Date();
+        var tempTime = new Date();
+        var time_interval = 5000;
+        var last_iteration = 0;
+        var isRunning = true;
+        var index = 0;
+        var timer;
+        var data = getData(); // Pull data from dataLoader-1
+
+        function updateDisplay() {
+            theTime = new Date();
+
+            // fill in the table
+            var timeRead = data[index].et;
+
+            if (timeRead >= 10) {
+                document.getElementById("data").rows["et"].innerHTML = dataRow("Time Elapsed", data[index].et, " seconds");
+                document.getElementById("data").rows["lat"].innerHTML = dataRow("Latitude", data[index].lat, " ");
+                document.getElementById("data").rows["long"].innerHTML = dataRow("Longitude", data[index].long, " ");
+                document.getElementById("data").rows["gps_alt"].innerHTML = dataRow("GPS Altitude", data[index].gps_alt, " ");
+                document.getElementById("data").rows["bmp_alt"].innerHTML = dataRow("BMP Sensor Altitude", data[index].bmp_alt, " ");
+                document.getElementById("data").rows["bmp_press"].innerHTML = dataRow("BMP Sensor Pressure", data[index].bmp_press, " ");
+                document.getElementById("data").rows["bmp_temp"].innerHTML = dataRow("BMP Sensor Temperature", data[index].bmp_temp, " ");
+                document.getElementById("data").rows["dig_temp"].innerHTML = dataRow("Digital Temperature", data[index].dig_temp, " ");
+                document.getElementById("data").rows["css_temp"].innerHTML = dataRow("CSS Sensor Temperature", data[index].css_temp, " ");
+                document.getElementById("data").rows["css_eCO2"].innerHTML = dataRow("CSS Sensor eCO2", data[index].css_eCO2, " ");
+                document.getElementById("data").rows["css_tvoc"].innerHTML = dataRow("CSS Sensor TVOC", data[index].css_tvoc, " ");
+                document.getElementById("data").rows["uv"].innerHTML = dataRow("UV", data[index].uv, " ");
+                document.getElementById("data").rows["accel_x"].innerHTML = dataRow("Accelerometer X", data[index].accel_x, " ");
+                document.getElementById("data").rows["accel_y"].innerHTML = dataRow("Accelerometer Y", data[index].accel_y, " ");
+                document.getElementById("data").rows["accel_z"].innerHTML = dataRow("Accelerometer Z", data[index].accel_z, " ");
+                document.getElementById("data").rows["mag_x"].innerHTML = dataRow("Magnetic X", data[index].mag_x, " ");
+                document.getElementById("data").rows["mag_y"].innerHTML = dataRow("Magnetic Y", data[index].mag_y, " ");
+                document.getElementById("data").rows["mag_z"].innerHTML = dataRow("Magnetic Z", data[index].mag_z, " ");
+                document.getElementById("data").rows["gyro_x"].innerHTML = dataRow("Gyroscope X", data[index].gyro_x, " ");
+                document.getElementById("data").rows["gyro_y"].innerHTML = dataRow("Gyroscope Y", data[index].gyro_y, " ");
+                document.getElementById("data").rows["gyro_z"].innerHTML = dataRow("Gyroscope Z", data[index].gyro_z, " ");
+            }
+
+            if (index < 500) {
+                index++;
+            } else {
+                index = 0;
+            }
+        }
+    </script>
     <header id="header">
         <nav class="navbar navbar-dark bg-custom">
             <div class="container-fluid">
@@ -79,194 +128,40 @@
         </div>
 
         <!-- Collapsed table for flight data -->
-        <div class="py-4">
-            <div id="launchData" class="bg-primary p-4 collapse rounded">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm text-center">
-                            <strong>Space Program</strong>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right border-bottom">
-                            <strong>Data Type</strong>
-                        </div>
-                        <div class="col-sm border-left border-bottom">
-                            <strong>Readings</strong>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Time Elapsed:
-                        </div>
-                        <div id="et" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Latitude:
-                        </div>
-                        <div id="lat" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Longitude:
-                        </div>
-                        <div id="long" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            GPS Altitude:
-                        </div>
-                        <div id="gpsAlt" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            BMP Sensor Altitude:
-                        </div>
-                        <div id="bmpAlt" class="col-sm border-left">
-                            30383.04
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            BMP Sensor Pressure:
-                        </div>
-                        <div id="bmpPress" class="col-sm border-left">
-                            2.34
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            BMP Sensor Temperature:
-                        </div>
-                        <div id="bmpTemp" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Digital Sensor Temperature:
-                        </div>
-                        <div id="digitalTemp" class="col-sm border-left">
-                            24.12
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            CSS Sensor Temperature:
-                        </div>
-                        <div id="cssTemp" class="col-sm border-left">
-                            25
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            CSS Sensor eCO2:
-                        </div>
-                        <div id="cssEco2" class="col-sm border-left">
-                            400
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            CSS Sensor TVOC:
-                        </div>
-                        <div id="cssTvoc" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            UV:
-                        </div>
-                        <div id="uv" class="col-sm border-left">
-                            0
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Accel X:
-                        </div>
-                        <div id="accelX" class="col-sm border-left">
-                            -0.87
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Accel Y:
-                        </div>
-                        <div id="accelY" class="col-sm border-left">
-                            -0.02
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Accel Z:
-                        </div>
-                        <div id="accelZ" class="col-sm border-left">
-                            9.61
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Magnetic X:
-                        </div>
-                        <div id="magX" class="col-sm border-left">
-                            0.13
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Magnetic Y:
-                        </div>
-                        <div id="magY" class="col-sm border-left">
-                            0.57
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Magnetic Z:
-                        </div>
-                        <div id="magZ" class="col-sm border-left">
-                            -0.24
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Gyro X:
-                        </div>
-                        <div id="gyroX" class="col-sm border-left">
-                            4.66
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Gyro Y:
-                        </div>
-                        <div id="gyroY" class="col-sm border-left">
-                            0.01
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm border-right">
-                            Gyro Z:
-                        </div>
-                        <div id="gyroZ" class="col-sm border-left">
-                            -0.4
-                        </div>
-                    </div>
+        <div id="launchData" class="container py-4 collapse">
+            <div class="bg-primary p-4 rounded">
+                <div class="container table-wrap">
+                    <table id="data" class="table table-hover">
+                        <thead>
+                            <tr class="row">
+                                <th class="col text-right">Data Type</th>
+                                <th class="col text-left">Reading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="et" class="row"></tr>
+                            <tr id="lat" class="row"></tr>
+                            <tr id="long" class="row"></tr>
+                            <tr id="gps_alt" class="row"></tr>
+                            <tr id="bmp_alt" class="row"></tr>
+                            <tr id="bmp_press" class="row"></tr>
+                            <tr id="bmp_temp" class="row"></tr>
+                            <tr id="dig_temp" class="row"></tr>
+                            <tr id="css_temp" class="row"></tr>
+                            <tr id="css_eCO2" class="row"></tr>
+                            <tr id="css_tvoc" class="row"></tr>
+                            <tr id="uv" class="row"></tr>
+                            <tr id="accel_x" class="row"></tr>
+                            <tr id="accel_y" class="row"></tr>
+                            <tr id="accel_z" class="row"></tr>
+                            <tr id="mag_x" class="row"></tr>
+                            <tr id="mag_y" class="row"></tr>
+                            <tr id="mag_z" class="row"></tr>
+                            <tr id="gyro_x" class="row"></tr>
+                            <tr id="gyro_y" class="row"></tr>
+                            <tr id="gyro_z" class="row"></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
