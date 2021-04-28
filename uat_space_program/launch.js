@@ -1,11 +1,6 @@
-// Setting global count and steps variables
-// let count = 2;
-// let steps = 1;
-
 let tableTimer;
 
 function postLaunchData() {
-    // let dataInput;
 
     // Setting up 1 second delay to reveal "data table"
     setTimeout(function () {
@@ -15,8 +10,6 @@ function postLaunchData() {
         $('#heading').remove();
         $('#timer').remove();
 
-        // Update "Readings" column with new data
-        // dataInput = setInterval(dataUpdate(), 1000 * steps);
         dataUpdate();
     }, 1000);
 }
@@ -36,11 +29,7 @@ function dataRow(legend, value, units) {
 // function to update data in interval
 function dataUpdate() {
     document.getElementById('data').rows["et"].innerHTML = "Reading Data...";
-    // index = 0;
     tableTimer = setInterval(updateDisplay, time_interval);
-
-    // count++;
-    // steps++;
 }
 
 // Class for data to be placed in table
